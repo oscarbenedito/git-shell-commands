@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Check number of params
-[ $# -ne 1 ] && echo "Usage: init <project.git>" && exit 1
+[ $# -ne 1 ] && echo "Usage: init project[.git]" && exit 1
 
 # Set the project name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')

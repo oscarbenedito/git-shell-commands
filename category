@@ -2,7 +2,7 @@
 
 # Check number of params
 [ $# -ne 1 ] && [ $# -ne 2 ] && \
-    echo "Usage: category <project.git> <category>" && exit 1
+    echo "Usage: category project[.git] [category]" && exit 1
 
 # Set the project name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')

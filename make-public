@@ -6,7 +6,7 @@ webdir="/srv/git/html"
 defaultdir="/usr/local/share/doc/stagit"
 
 # Check number of params
-[ $# -ne 1 ] && echo "Usage: make-public <project.git>" && exit 1
+[ $# -ne 1 ] && echo "Usage: make-public project[.git]" && exit 1
 
 # Set the project name, adding .git if necessary
 dir=$(echo "$1" | sed 's/\.git$\|$/.git/i')
