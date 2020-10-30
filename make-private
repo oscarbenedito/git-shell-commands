@@ -11,7 +11,7 @@ webdir="/srv/git/html"
 dir="$(echo "$1" | sed 's/\.git$\|$/.git/i')"
 web="/srv/git/html/$(basename "$dir" ".git")"
 
-[ ! -d "$dir" ] && echo "$dir not found."
+[ ! -d "$dir" ] && echo "$dir not found." && exit 1
 
 [ ! -f "$dir/git-daemon-export-ok" ] && echo "$dir is already private." && exit
 

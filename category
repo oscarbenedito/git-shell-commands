@@ -7,7 +7,7 @@
 # Set the project name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')
 
-[ ! -d "$p" ] && echo "$p not found."
+[ ! -d "$p" ] && echo "$p not found." && exit 1
 
 [ -n "$2" ] && echo "$2" > "$p/category" \
     || rm -f "$p/category"

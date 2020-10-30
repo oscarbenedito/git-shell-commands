@@ -11,7 +11,7 @@ defaultdir="/usr/local/share/doc/stagit"
 # Set the project name, adding .git if necessary
 dir=$(echo "$1" | sed 's/\.git$\|$/.git/i')
 
-[ ! -d "$dir" ] && echo "$dir not found."
+[ ! -d "$dir" ] && echo "$dir not found." && exit 1
 
 [ -f "$dir/git-daemon-export-ok" ] && echo "$dir is already public." && exit
 

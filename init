@@ -6,6 +6,8 @@
 # Set the project name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')
 
+[ -e "$p" ] && echo "$p is already a file or directory." && exit 1
+
 # Create and initialise the project
 mkdir "$p" && \
   cd "$p" && \
