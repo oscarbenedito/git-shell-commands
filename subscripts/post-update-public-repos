@@ -1,0 +1,10 @@
+#!/bin/sh
+# TODO make sure you put the correct token.
+
+git update-server-info
+
+dir="$(basename "$(basename "$(pwd)")" ".git")"
+curl -X POST -H "Content-Type: application/json" \
+  -d "{ \"c\": \"token\", \"r\": \"$dir\" }" \
+  "http://localhost:9090/hooks/mirror-repo" \
+  >/dev/null 2>/dev/null

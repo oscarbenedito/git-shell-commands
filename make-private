@@ -16,6 +16,10 @@ web="/srv/git/html/$(basename "$dir" ".git")"
 [ ! -f "$dir/git-daemon-export-ok" ] && echo "$dir is already private." && exit
 
 rm "$dir/git-daemon-export-ok"
+git -C "$dir" remote remove srht
+git -C "$dir" remote remove github
+rm "$dir/hooks/post-update"
+
 rm -rf "$web"
 
 repos=""
