@@ -7,12 +7,12 @@ trap "notify \"ERROR pushing $repo\" \"There was an error pushing $repo to eithe
 dir="$(pwd)"
 repo="$(basename "$(pwd)" ".git")"
 
-git -C "$dir" remote get-url srht ||
-    \ git -C "$dir" remote add srht "git@git.sr.ht:~ob/$repo"
+git -C "$dir" remote get-url srht || \
+    git -C "$dir" remote add srht "git@git.sr.ht:~ob/$repo"
 git -C "$dir" push --all --force --prune srht
 git -C "$dir" push --tags --force --prune srht
 
-git -C "$dir" remote get-url github ||
-    \ git -C "$dir" remote add github "git@github.com:oscarbenedito/$repo"
+git -C "$dir" remote get-url github || \
+    git -C "$dir" remote add github "git@github.com:oscarbenedito/$repo"
 git -C "$dir" push --all --force --prune github
 git -C "$dir" push --tags --force --prune github
