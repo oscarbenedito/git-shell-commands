@@ -4,10 +4,9 @@ echo "Run 'help' for help, or 'exit' to leave. Available commands:"
 
 cd "$(dirname "$0")"
 
-for cmd in *
-do
-  case "$cmd" in
-  help) ;;
-  *) [ -f "$cmd" ] && [ -x "$cmd" ] && echo "    $cmd" ;;
-  esac
+for cmd in *; do
+    case "$cmd" in
+        help) ;;
+        *) [ -f "$cmd" ] && [ -x "$cmd" ] && echo "    $cmd" ;;
+    esac
 done

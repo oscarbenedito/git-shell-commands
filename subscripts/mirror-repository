@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# you should never call this script from a non-public repository, but just in
+# case...
+if [ ! -f "git-daemon-export-ok" ] || [ ! -f "category" ]; then
+    exit 1
+fi
+
 set -e
 
 trap "notify \"ERROR pushing $repo\" \"There was an error pushing $repo to either SourceHut or GitHub.\"" ERR

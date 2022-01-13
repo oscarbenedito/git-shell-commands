@@ -3,7 +3,7 @@
 # check number of params
 [ $# -ne 1 ] && echo "Usage: edit repo[.git]" && exit 1
 
-# set the project name, adding .git if necessary
+# set the repository name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')
 
 [ ! -d "$p" ] && echo "$p not found." && exit 1
@@ -12,7 +12,7 @@ get_category() {
     if [ ! -f "$p/git-daemon-export-ok" ]; then
         echo "Private repository"
     elif [ ! -f "$p/category" ]; then
-        echo "Unlisted repo (public cloning but not listed on website)"
+        echo "Unlisted repository (public cloning but not listed on website)"
     else
         printf "Public repository, category: "
         cat "$p/category"
