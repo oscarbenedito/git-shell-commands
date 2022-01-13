@@ -1,6 +1,7 @@
 #!/bin/sh
 
-git update-server-info
+# uncomment this line to pack repository for dumb http protocol clone/fetch
+# git update-server-info
 
 # if repository is public, mirror to SourceHut and GitHub
 if [ -f "git-daemon-export-ok" ] && [ -f "category" ]; then
