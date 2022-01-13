@@ -1,7 +1,8 @@
 #!/bin/sh
+# edit metadata of a repository
 
 # check number of params
-[ $# -ne 1 ] && echo "Usage: edit repo[.git]" && exit 1
+[ $# -ne 1 ] && echo "Usage: e repo[.git]" && exit 1
 
 # set the repository name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')
@@ -71,4 +72,4 @@ while true; do
     esac
 done
 
-$HOME/git-shell-commands/restart-web
+$HOME/git-shell-commands/r

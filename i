@@ -1,7 +1,8 @@
 #!/bin/sh
+# create a new repository (private by default)
 
 # check number of params
-[ $# -ne 1 ] && echo "Usage: init repo[.git]" && exit 1
+[ $# -ne 1 ] && echo "Usage: i repo[.git]" && exit 1
 
 # set the repository name, adding .git if necessary
 p=$(echo "$1" | sed 's/\.git$\|$/.git/i')
@@ -13,7 +14,7 @@ mkdir "$p" && \
     cd "$p" && \
     git --bare init
 ln -sf "/usr/local/share/doc/stagit/example_post-receive.sh" "hooks/post-receive"
-ln -sf "$(dirname "$(realpath "$0")")/subscripts/post-update-public-repos" "hooks/post-update"
+ln -sf "$(dirname "$(realpath "$0")")/non-interactive/post-update-hook" "hooks/post-update"
 
 echo "Oscar Benedito" > "owner"
 echo "https://git.oscarbenedito.com/${p%.git}" > "url"

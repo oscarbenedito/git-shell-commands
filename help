@@ -1,12 +1,18 @@
 #!/bin/sh
 
 echo "Run 'help' for help, or 'exit' to leave. Available commands:"
+echo
+echo "    a         Add an ssh key"
+echo "    e <repo>  Edit metadata of a repository"
+echo "    i <repo>  Create a new repository (private by default)"
+echo "    r         Re-create the stagit website"
+echo
 
 cd "$(dirname "$0")"
 
 for cmd in *; do
     case "$cmd" in
-        help) ;;
+        a|e|i|r|help) ;;
         *) [ -f "$cmd" ] && [ -x "$cmd" ] && echo "    $cmd" ;;
     esac
 done
